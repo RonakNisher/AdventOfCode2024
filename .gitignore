@@ -25,4 +25,4 @@ Cargo.lock
 /target
 
 # Advent of Code Inputs
-**/*.txt
+# **/*.txt
