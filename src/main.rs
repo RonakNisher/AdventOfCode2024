@@ -1,6 +1,8 @@
 use std::env;
 use std::fs;
 
+mod day1;
+
 fn main() {
     let args: Vec<String> = env::args().collect();
     println!("{:?}", args);
@@ -15,6 +17,7 @@ fn main() {
     let contents = fs::read_to_string(filepath).expect("Should have been able to read the file");
 
     match day.as_str() {
+        "1" => day1::solve(contents),
         _ => println!("No solution for day {}", day),
     }
 }
