@@ -174,6 +174,9 @@ pub fn find_word_part2(grid: &Vec<Vec<char>>, row: i32, col: i32) -> i32 {
     let left_found = check_bottom_right(grid, row - 1, col - 1, verify_current_char) == 1 && 
         check_top_right(grid, row + 1, col - 1, verify_current_char) == 1;
 
+    if left_found {
+        return  1;
+    }
 
     // right MAS
     // S.M
@@ -183,12 +186,20 @@ pub fn find_word_part2(grid: &Vec<Vec<char>>, row: i32, col: i32) -> i32 {
     let right_found = check_bottom_left(grid, row - 1, col + 1, verify_current_char) == 1 && 
         check_top_left(grid, row + 1, col + 1, verify_current_char) == 1;
 
+    if right_found {
+        return 1
+    }
+
     // top MAS
     // M.M
     // .A.
     // S.S
     let top_found = check_bottom_right(grid, row - 1, col - 1, verify_current_char) == 1 && 
         check_bottom_left(grid, row - 1, col + 1, verify_current_char) == 1;
+
+    if top_found {
+        return 1;
+    }
 
     // bottom MAS
     // S.S
@@ -197,7 +208,7 @@ pub fn find_word_part2(grid: &Vec<Vec<char>>, row: i32, col: i32) -> i32 {
     let bottom_found = check_top_right(grid, row + 1, col - 1, verify_current_char) == 1 && 
         check_top_left(grid, row + 1, col + 1, verify_current_char) == 1;
 
-    if left_found || right_found || top_found || bottom_found {
+    if bottom_found {
         return 1;
     }
 
